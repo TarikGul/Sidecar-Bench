@@ -1,0 +1,1 @@
+This is where descriptions of the benchmarking enviorment will go for the GCP instance will go such as specs and hardware. 
