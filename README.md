@@ -8,6 +8,8 @@ Benchmarking for Substrate-API-Sidecar
 
 * Additional routes to the data field and add a weight to blocks queries
 
+* Update the `README.md` inside of the `benchmarking/gcp-instance` directory with specs and hardware
+
 * Dockerfile
 
 * Github actions
