@@ -40,8 +40,6 @@ blocks = {
 '799310', -- after v17
 }
 
--- blocks2 = load_request_objects_from_file('./cc1-blocks.json')
-
 counter = 1
 
 request = function()
