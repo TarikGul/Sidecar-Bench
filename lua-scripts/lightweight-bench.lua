@@ -62,7 +62,6 @@ end
 
 done = function(summary, latency, requests)
 
-  local durations = summary.duration
   local bytes = summary.bytes
   local errors = summary.errors.status -- http status is not at the beginning of 200,300
   local requests = summary.requests -- total requests
@@ -73,22 +72,20 @@ done = function(summary, latency, requests)
   print("Average latency: ", (latency.mean/1000).."s")
   print("Latency Distribution:")
 
-  -- If you want to print similar stats to the built int --latency
---   for _, p in pairs({ 50, 75, 90, 99.999 }) do
---       n = latency:percentile(p)
---       print(string.format("%g%%, %d\n", p, n))
---   end
+  --   If you want to print similar stats to the built int --latency
+  --   for _, p in pairs({ 50, 75, 90, 99.999 }) do
+  --       n = latency:percentile(p)
+  --       print(string.format("%g%%, %d\n", p, n))
+  --   end
 
   -- Save to a local txt file
   local file = io.open("./benchmarks/gcp-instance/sidecar-v.txt", "w")
   file:write("Total completed requests: " .. requests .. "\n")
   file:write("Failed requests: " .. errors .. "\n")
-  file:write("Timeoutes: " .. errors .. "\n")
-  file:write("Avg RT:          "..string.format("%.2f",latency.mean / 1000).."ms".."\n")
-  file:write("Max RT:          "..(latency.max / 1000).."ms".."\n")
-  file:write("Min RT:          "..(latency.min / 1000).."ms".."\n")
-  file:write("Requests/sec:             "..string.format("%.2f",requests / durations).."\n")
-  file:write("Transfer/sec:             "..string.format("%.2f",bytes / durations).."\n")
+  file:write("Timeouts: " .. errors .. "\n")
+  file:write("Avg RequestTime(Latency):          "..string.format("%.2f",latency.mean / 1000).."ms".."\n")
+  file:write("Max RequestTime(Latency):          "..(latency.max / 1000).."ms".."\n")
+  file:write("Min RequestTime(Latency):          "..(latency.min / 1000).."ms".."\n")
   file:write("--------------------------\n")
   file:close()
 end
