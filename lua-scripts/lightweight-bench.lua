@@ -61,23 +61,35 @@ delay = function()
 end
 
 done = function(summary, latency, requests)
-  -- Here we could log to file. We cold use an init() function to take in the file name
+
+  local durations = summary.duration
+  local bytes = summary.bytes
+  local errors = summary.errors.status -- http status is not at the beginning of 200,300
+  local requests = summary.requests -- total requests
+  local valid = requests-errors -- number of valid requests = total number of requests - number of error requests
+
   print("Total completed requests: ", summary.requests)
   print("Failed requests: ", summary.errors.status)
   print("Timeouts: ", summary.errors.status)
   print("Average latency: ", (latency.mean/1000).."s")
   print("Latency Distribution:")
-  for _, p in pairs({ 50, 75, 99, 99.999 }) do
-      n = latency:percentile(p)
-      print(string.format("%g%%,%d\n", p, n))
-  end
 
+  -- If you want to print similar stats to the built int --latency
+--   for _, p in pairs({ 50, 75, 90, 99.999 }) do
+--       n = latency:percentile(p)
+--       print(string.format("%g%%, %d\n", p, n))
+--   end
 
   -- Save to a local txt file
   local file = io.open("./benchmarks/gcp-instance/sidecar-v.txt", "w")
-  file:write("Total completed requests: " .. summary.requests .. "\n")
-  file:write("Failed requests: " .. summary.errors.status .. "\n")
-  file:write("Timeoutes: " .. summary.errors.status .. "\n")
-  file:write("Average latency: ", (latency.mean/1000).."s")
+  file:write("Total completed requests: " .. requests .. "\n")
+  file:write("Failed requests: " .. errors .. "\n")
+  file:write("Timeoutes: " .. errors .. "\n")
+  file:write("Avg RT:          "..string.format("%.2f",latency.mean / 1000).."ms".."\n")
+  file:write("Max RT:          "..(latency.max / 1000).."ms".."\n")
+  file:write("Min RT:          "..(latency.min / 1000).."ms".."\n")
+  file:write("Requests/sec:             "..string.format("%.2f",valid / durations).."\n")
+  file:write("Transfer/sec:             "..string.format("%.2f",bytes / durations).."\n")
+  file:write("--------------------------\n")
   file:close()
 end
