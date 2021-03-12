@@ -127,6 +127,7 @@ sh init.sh
 
 Version's of sidecar to benchmark and archive
 
+    v4.0.0
     v3.0.5
     v3.0.4
     v3.0.3
