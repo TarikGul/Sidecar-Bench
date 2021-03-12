@@ -2,53 +2,53 @@
 local cjson = require "cjson"
 local cjson2 = cjson.new()
 local cjson_safe = require "cjson.safe"
-local http = require "socket.http"
-local socket = require "socket"
+-- local http = require "socket.http"
+-- local socket = require "socket"
 
--- Start by testing connection to Sidecar and receiving its version
-local data = ""
+-- -- Start by testing connection to Sidecar and receiving its version
+-- local data = ""
 
-local function collect(chunk)
-  if chunk ~= nil then
-    data = data .. chunk
-  end
-  return true
-end
+-- local function collect(chunk)
+--   if chunk ~= nil then
+--     data = data .. chunk
+--   end
+--   return true
+-- end
 
-print("Testing connection with Substrate-api-sidecar....")
+-- print("Testing connection with Substrate-api-sidecar....")
 
--- We can always change the url path to be set to an env variable
-local ok, statusCode, headers, statusText = http.request {
-  method = "GET",
-  url = "http://127.0.0.1:8080/",
-  sink = collect
-}
+-- -- We can always change the url path to be set to an env variable
+-- local ok, statusCode, headers, statusText = http.request {
+--   method = "GET",
+--   url = "http://127.0.0.1:8080/",
+--   sink = collect
+-- }
 
-print("ok\t",         ok);
-print("statusCode", statusCode)
-print("statusText", statusText)
-print("headers:", headers)
+-- print("ok\t",         ok);
+-- print("statusCode", statusCode)
+-- print("statusText", statusText)
+-- print("headers:", headers)
 
-if headers ~= nil then 
-  for i,v in pairs(headers) do
-    print("\t",i, v)
-  end
+-- if headers ~= nil then 
+--   for i,v in pairs(headers) do
+--     print("\t",i, v)
+--   end
 
-  res = cjson.decode(data)
-end
+--   res = cjson.decode(data)
+-- end
 
-if statusCode == 200 then
-  print("Running Substrate-api-sidecar version: ", res["version"])
-  socket.sleep(0.5) 
-  print("Now Running Benchmarks using Wrk")
-else 
-  print("Connection failure... Make sure Sidecar is running")
-  socket.sleep(1)
-  print("Exiting script...")
-  socket.sleep(1)
-  print("Goodbye")
-  os.exit() 
-end
+-- if statusCode == 200 then
+--   print("Running Substrate-api-sidecar version: ", res["version"])
+--   socket.sleep(0.5) 
+--   print("Now Running Benchmarks using Wrk")
+-- else 
+--   print("Connection failure... Make sure Sidecar is running")
+--   socket.sleep(1)
+--   print("Exiting script...")
+--   socket.sleep(1)
+--   print("Goodbye")
+--   os.exit() 
+-- end
 
 -- Initialize the pseudo random number generator
 -- Resource: http://lua-users.org/wiki/MathLibraryTutorial
@@ -136,7 +136,7 @@ done = function(summary, latency, requests)
   print("Average latency: ", (latency.mean/1000).."s")
 
   -- Save to a local txt file
-  local file = io.open("./benchmarks/gcp-instance/sidecar-v" .. res["version"] .. ".txt", "w")
+  local file = io.open("./benchmarks/gcp-instance/sidecar-v.txt", "w")
   file:write("Total completed requests: " .. summary.requests .. "\n")
   file:write("Failed requests: " .. summary.errors.status .. "\n")
   file:write("Timeoutes: " .. summary.errors.status .. "\n")
