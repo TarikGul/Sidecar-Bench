@@ -136,7 +136,7 @@ done = function(summary, latency, requests)
   print("Average latency: ", (latency.mean/1000).."s")
 
   -- Save to a local txt file
-  local file = io.open("./benchmarks/gcp-instance/sidecar-version-v" .. res .. ".txt", "w")
+  local file = io.open("./benchmarks/gcp-instance/sidecar-v" .. res["version"] .. ".txt", "w")
   file:write("Total completed requests: " .. summary.requests .. "\n")
   file:write("Failed requests: " .. summary.errors.status .. "\n")
   file:write("Timeoutes: " .. summary.errors.status .. "\n")
