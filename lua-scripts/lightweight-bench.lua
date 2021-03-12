@@ -66,7 +66,6 @@ done = function(summary, latency, requests)
   local bytes = summary.bytes
   local errors = summary.errors.status -- http status is not at the beginning of 200,300
   local requests = summary.requests -- total requests
-  local valid = requests-errors -- number of valid requests = total number of requests - number of error requests
 
   print("Total completed requests: ", summary.requests)
   print("Failed requests: ", summary.errors.status)
@@ -88,7 +87,7 @@ done = function(summary, latency, requests)
   file:write("Avg RT:          "..string.format("%.2f",latency.mean / 1000).."ms".."\n")
   file:write("Max RT:          "..(latency.max / 1000).."ms".."\n")
   file:write("Min RT:          "..(latency.min / 1000).."ms".."\n")
-  file:write("Requests/sec:             "..string.format("%.2f",valid / durations).."\n")
+  file:write("Requests/sec:             "..string.format("%.2f",requests / durations).."\n")
   file:write("Transfer/sec:             "..string.format("%.2f",bytes / durations).."\n")
   file:write("--------------------------\n")
   file:close()
