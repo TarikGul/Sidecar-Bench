@@ -50,6 +50,7 @@ blocks = {
 ******------    Chain commands    ------******
 -- rural-low-8355
 -- target/release/polkadot --name "rural-low-8355" --no-prometheus --no-telemetry --database=rocksdb --pruning=archive --wasm-execution=Compiled --chain=polkadot
+-- target/release/polkadot --base-path=../node-db/local/ --pruning=archive --no-prometheus --no-telemetry --database=rocksdb --wasm-execution=Compiled --chain=polkadot
 
 ******------     Lua shortcuts    ------******
 -- print(package.path) -- where .lua files are searched for
