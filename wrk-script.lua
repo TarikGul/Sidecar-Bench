@@ -89,12 +89,11 @@ function load_request_objects_from_file(file)
   -- Translate Lua value to/from JSON
   data = cjson.decode(content)
 
-
   return shuffle(data)
 end
 
 -- Load URL requests from file
-requests = load_request_objects_from_file("./data/requests.json")
+requests = load_request_objects_from_file("./data/block-requests.json")
 
 -- Check if at least one path was found in the file
 if #requests <= 0 then
