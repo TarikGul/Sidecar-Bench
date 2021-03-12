@@ -8,4 +8,4 @@
 #   -s wrk-script.lua \ # Use a lua script that covers a fixed set of blocks from around launch
 #   http://127.0.0.1:8080 # Assume SAS is runnig on the default port
 
-wrk -d1m -t4 -c39 --timeout 120s --latency -s ./scripts/lightweight-bench.lua http://127.0.0.1:8080
+wrk -d2m -t4 -c12 --timeout 120s --latency -s ./scripts/lightweight-bench.lua http://127.0.0.1:8080
