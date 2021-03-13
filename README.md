@@ -67,7 +67,7 @@ This will download node 14.x
 $ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 
-$npm install --global yarn
+$ npm install --global yarn
 ```
 
 #### --Substrate-Api-Sidecar
@@ -112,13 +112,14 @@ sudo cp wrk /usr/local/bin
 
 ```
 git clone https://github.com/TarikGul/Sidecar-Bench.git
+sh ./lua-scripts/setup.sh
 ```
 
 ## Launch Benchmarks
 
 ```
 cd Sidecar-bench
-sh init.sh
+sh ./lua-scripts/init.sh
 ```
 
 Version's of sidecar to benchmark and archive
