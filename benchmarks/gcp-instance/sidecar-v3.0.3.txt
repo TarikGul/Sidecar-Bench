@@ -35,11 +35,6 @@ Running 2m test @ http://127.0.0.1:8080
   135 requests in 2.00m, 154.26MB read
 Requests/sec:      1.12
 Transfer/sec:      1.28MB
-Total completed requests:       135
-Failed requests:        0
-Timeouts:       0
-Average latency:        10226.224140741s
-Latency Distribution:
 
 Total completed requests: 135
 Failed requests: 0
