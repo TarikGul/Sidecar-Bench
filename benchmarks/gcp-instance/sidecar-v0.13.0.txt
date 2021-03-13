@@ -1,0 +1,44 @@
+Running 2m test @ http://127.0.0.1:8080
+  4 threads and 12 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.53s     7.10s   32.10s    73.17%
+    Req/Sec     0.70      2.18    10.00     91.43%
+  Latency Distribution
+     50%   14.89s 
+     75%   19.79s 
+     90%   27.99s 
+     99%   32.10s 
+  82 requests in 2.00m, 90.02MB read
+Requests/sec:      0.68
+Transfer/sec:    767.63KB
+
+Total completed requests: 82
+Failed requests: 0
+Timeouts: 0
+Avg RequestTime(Latency):          16529.35ms
+Max RequestTime(Latency):          32096.663ms
+Min RequestTime(Latency):          6238.877ms
+--------------------------
+
+--------------------------
+Running 2m test @ http://127.0.0.1:8080
+  4 threads and 12 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    20.74s     6.52s   35.06s    74.24%
+    Req/Sec     0.60      1.94    10.00     93.55%
+  Latency Distribution
+     50%   17.71s 
+     75%   23.73s 
+     90%   32.55s 
+     99%   35.06s 
+  66 requests in 2.00m, 74.86MB read
+Requests/sec:      0.55
+Transfer/sec:    638.34KB
+
+Total completed requests: 66
+Failed requests: 0
+Timeouts: 0
+Avg RequestTime(Latency):          20736.21ms
+Max RequestTime(Latency):          35064.66ms
+Min RequestTime(Latency):          8209.65ms
+--------------------------

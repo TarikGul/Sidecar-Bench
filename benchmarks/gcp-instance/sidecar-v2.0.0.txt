@@ -19,3 +19,27 @@ Avg RequestTime(Latency):          4359.51ms
 Max RequestTime(Latency):          10089.614ms
 Min RequestTime(Latency):          221.727ms
 --------------------------
+This second benchmark was a sanity check after running all the other benchmarks. 
+--------------------------
+
+Running 2m test @ http://127.0.0.1:8080
+  4 threads and 12 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.55s     2.24s    9.89s    69.60%
+    Req/Sec     1.73      3.76    20.00     88.67%
+  Latency Distribution
+     50%    4.25s 
+     75%    5.93s 
+     90%    8.08s 
+     99%    9.88s 
+  315 requests in 2.00m, 342.15MB read
+Requests/sec:      2.62
+Transfer/sec:      2.85MB
+
+Total completed requests: 315
+Failed requests: 0
+Timeouts: 0
+Avg RequestTime(Latency):          4553.90ms
+Max RequestTime(Latency):          9890.53ms
+Min RequestTime(Latency):          148.018ms
+--------------------------
