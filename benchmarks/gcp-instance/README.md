@@ -3,6 +3,8 @@ This is where descriptions of the benchmarking enviorment will go for the GCP in
 All Benchmarks were queried on a Archive Node with a Block Height less than 
 1.1 Million.
 
+
+wrk script used for these benchmarks
 ```
 wrk -d2m -t4 -c12 --timeout 120s --latency -s ./lua-scripts/lightweight-bench.lua http://127.0.0.1
 :8080
