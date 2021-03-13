@@ -19,7 +19,7 @@ Avg RequestTime(Latency):          10126.88ms
 Max RequestTime(Latency):          18084.923ms
 Min RequestTime(Latency):          3545.555ms
 --------------------------
-Two sets because of the drastic change
+
 --------------------------
 
 Running 2m test @ http://127.0.0.1:8080
