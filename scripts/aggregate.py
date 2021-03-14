@@ -104,6 +104,7 @@ def performance(data: dict, versions: list) -> None:
                 # Set the new stable version to the current
                 prev_stable_version = versions[i]
             else:
+                data[versions[i]]['performance'] = 'Unstable: No analytics on this version'
                 continue
         
         print('version: ', versions[i] + ' ' + data[versions[i]]['performance'])
