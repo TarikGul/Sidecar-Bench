@@ -1,5 +1,4 @@
 import os
-import argparse
 
 '''
 Iterate through all the files in the chosen directory. 
@@ -152,11 +151,6 @@ def space(data1: str) -> str:
 
 def main():
     '''
-    Parser
-    '''
-    parser = argparse.ArgumentParser()
-
-    '''
     Data as a dictionary, with necessary key value pairs. Each function that "data"
     passes through is mutating the structure of this data variable. We are not 
     cloning the dictionary anywhere.
@@ -166,7 +160,7 @@ def main():
     ordered_versions = aggregate_benchmarks(data)
 
     path_to_file = './benchmarks/gcp-instance/summary.txt';
-    
+
     write_file(data, ordered_versions, path_to_file)
 
 if __name__ == "__main__":
