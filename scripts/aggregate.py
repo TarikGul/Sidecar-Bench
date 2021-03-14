@@ -2,15 +2,6 @@ import os
 import argparse
 
 '''
-@TODO 
-Finish adding parser. I want to add a folder path flag.
-
-Add performance field. The algorithm needs to keep in mind versions with failed
-requests. So it needs to do some type of sliding window or backtracing to identify
-stable versions. 
-'''
-
-'''
 Iterate through all the files in the chosen directory. 
 '''
 def scan_files(folder: str) -> dict:
@@ -27,7 +18,7 @@ def scan_files(folder: str) -> dict:
 '''
 Parse the file, and organize it in a dictionary
 I am using hardcoded key values here that abstract data directly from the .txt
-files. Meaning, if any of the txt files change so does the way the function reads
+files. Meaning, if any of the txt files structures change so does the way the function reads
 the txt file. Basically the only thing that would need to change is the if else. 
 '''
 def parse_file(folder: str, filename: str, data: dict, version: str) -> None:
@@ -66,6 +57,11 @@ def parse_file(folder: str, filename: str, data: dict, version: str) -> None:
             
     data[version] = version_data
 
+'''
+Inside aggregate_benchmarks, you can add any helper function that takes in
+the data dictionary to which you can do any data analytics too and add any extra 
+field to each version 
+'''
 def aggregate_benchmarks(data: dict) -> list:
     versions = []
     for key in data.keys():
@@ -82,20 +78,43 @@ def aggregate_benchmarks(data: dict) -> list:
     '''
     Add a performance key that will judge a version by its last version 
     '''
-    performance(data)
+    performance(data, versions)
 
     return versions
 
 def performance(data: dict, versions: list) -> None:
-    for i in range(versions):
+    prev_stable_version = ''
+
+    for i in range(len(versions)):
         if i == 0:
             data[versions[i]]['performance'] = 'Earliest version, no data to compare too'
+            prev_stable_version = versions[i]
         else:
-            # Make sure both are stable versions, and there are no failed
-            # requests
             cur = data[versions[i]]
-            prev = data[versions[i-1]]
+            prev = data[prev_stable_version]
+            if is_stable(cur):
+                avg_cur_latency = cur['Avg-Latency']
+                avg_prev_latency = prev['Avg-Latency']
+                cur_average = (float(avg_cur_latency[0][:-2]) + float(avg_cur_latency[1][:-2])) / 2
+                prev_average = (float(avg_prev_latency[0][:-2]) + float(avg_prev_latency[1][:-2])) / 2
+                # Calculate the increase or decrease in performance
+                diff = cur_average - prev_average
+                perf = round(((diff) / 100.0) * -1.0, 4)
+                data[versions[i]]['performance'] = str(perf) + '%'
+                # Set the new stable version to the current
+                prev_stable_version = versions[i]
+            else:
+                continue
+        
+        print('version: ', versions[i] + ' ' + data[versions[i]]['performance'])
 
+def is_stable(version_data: dict):
+    bench1 = int(version_data['Failed'][0])
+    bench2 = int(version_data['Failed'][1])
+    if bench1 > 0 or bench2 > 0:
+        return False
+    else:
+        return True
 
 def write_file():
     print('do something')
@@ -112,7 +131,6 @@ def main():
     data = scan_files('./benchmarks/gcp-instance/')
 
     aggregate = aggregate_benchmarks(data)
-    print(aggregate)
 
 if __name__ == "__main__":
     main()
