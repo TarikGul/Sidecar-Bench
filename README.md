@@ -122,31 +122,10 @@ cd Sidecar-bench
 sh ./lua-scripts/init.sh
 ```
 
-Version's of sidecar to benchmark and archive
+## Notes:
 
-    v4.0.0
-    v3.0.5
-    v3.0.4
-    v3.0.3
-    v3.0.2
-    v3.0.1
-    v3.0.0
-    v2.1.2
-    v2.1.1
-    v2.1.0
-    v2.0.0
-    v1.1.0
-    v1.0.0
-    v0.18.1
-    v0.18.0
-    v0.17.0
-    v0.16.0
-    v0.15.0
-    v0.14.0
-    v0.13.0
-    v0.12.0
-    v0.11.3
-    v0.11.2
-    v0.11.1
-    v0.11.0
-    ...
+Currently there are 3 scripts inside of `./lua-scripts`. We are currently using `lightweight-bench.lua` because of its ability to put less load on the system and have morea ccurate benchmarking. `Json-bench.lua` reads in the paths to send requests too via a json file whereas `lightweight-bench.lua` reads in hardcoded values from a lua vector(array). `heavy-bench.lua` is similar to `json-bench.lua` but it also checks for a connection with Sidecar before running the wrk scripts and then checks for the version of sidecar that is running.
+
+### Aggregate
+
+In order to update the summary file in a benchmarking directory, run `python3 ./scripts/aggregate.py`. If you need to change the path for the benchmarking directory you can change it inside the script in the `main` function. 
