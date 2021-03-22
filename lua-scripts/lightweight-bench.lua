@@ -70,8 +70,8 @@ done = function(summary, latency, requests)
   print("Failed requests: ", summary.errors.status)
   print("Timeouts: ", summary.errors.status)
   print("Average latency: ", (latency.mean/1000).."s")
-  print("Latency Distribution:")
-
+  
+  -- print("Latency Distribution:")
   --   If you want to print similar stats to the built int --latency
   --   for _, p in pairs({ 50, 75, 90, 99.999 }) do
   --       n = latency:percentile(p)
