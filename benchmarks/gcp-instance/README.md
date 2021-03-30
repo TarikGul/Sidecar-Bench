@@ -13,8 +13,9 @@ Hard-Disk:
 
 ## Notes
 
-All Benchmarks were queried on a Polkadot Archive Node with a Block Height less than 
-1.1 Million.
+All Benchmarks less than or equal to v3.0.4 were queried on a Polkadot Archive Node with a Block Height less than 1.1 Million. 
+
+All benchmarks greater than to v3.0.4 were queried on a Polkadot Archive Node with a Block Height od greater than 4 million. 
 
 ### wrk
 

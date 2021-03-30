@@ -310,3 +310,27 @@ Min-Latency  :      3680.747ms         3846.276ms
 Max-Latency  :      17500.661ms        17325.201ms
 Performance  : -0.3685%
 
+Sidecar Version: v4.0.2
+                  Benchmark-1         Benchmark-2
+Requests/sec :      1.02               1.02
+Transfer/sec :      1.14MB             1.14MB
+Completed Req:      123                123
+Timeout Req  :      0                  0
+Failed Req   :      0                  0
+Avg-Latency  :      11287.81ms         11081.18ms
+Min-Latency  :      3561.772ms         3458.955ms
+Max-Latency  :      20460.533ms        21205.492ms
+Performance  : -11.1424%
+
+Sidecar Version: v4.0.4
+                  Benchmark-1         Benchmark-2
+Requests/sec :      2.32               2.12
+Transfer/sec :      2.57MB             2.30MB
+Completed Req:      279                255
+Timeout Req  :      0                  0
+Failed Req   :      0                  0
+Avg-Latency  :      5191.74ms          5613.34ms
+Min-Latency  :      125.17ms           114.619ms
+Max-Latency  :      12765.735ms        12380.613ms
+Performance  : 57.8195%
+
