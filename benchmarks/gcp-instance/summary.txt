@@ -334,3 +334,39 @@ Min-Latency  :      125.17ms           114.619ms
 Max-Latency  :      12765.735ms        12380.613ms
 Performance  : 57.8195%
 
+Sidecar Version: v4.0.5
+                  Benchmark-1         Benchmark-2
+Requests/sec :      2.23               2.32
+Transfer/sec :      2.47MB             2.57MB
+Completed Req:      268                279
+Timeout Req  :      0                  0
+Failed Req   :      0                  0
+Avg-Latency  :      5280.13ms          5140.74ms
+Min-Latency  :      143.901ms          150.793ms
+Max-Latency  :      10844.23ms         10219.656ms
+Performance  : 1.9211%
+
+Sidecar Version: v4.0.6
+                  Benchmark-1         Benchmark-2
+Requests/sec :      2.25               2.17
+Transfer/sec :      2.54MB             2.43MB
+Completed Req:      270                261
+Timeout Req  :      0                  0
+Failed Req   :      0                  0
+Avg-Latency  :      5228.23ms          5405.90ms
+Min-Latency  :      175.973ms          155.277ms
+Max-Latency  :      11871.725ms        9724.947ms
+Performance  : -1.0663%
+
+Sidecar Version: v4.0.7
+                  Benchmark-1         Benchmark-2
+Requests/sec :      2.23               2.14
+Transfer/sec :      2.47MB             2.37MB
+Completed Req:      268                257
+Timeout Req  :      0                  0
+Failed Req   :      0                  0
+Avg-Latency  :      5281.67ms          5475.45ms
+Min-Latency  :      252.744ms          161.494ms
+Max-Latency  :      9276.903ms         10270.244ms
+Performance  : -0.6149%
+
