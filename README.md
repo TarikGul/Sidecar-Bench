@@ -6,9 +6,9 @@ Benchmarking for Substrate-API-Sidecar
 
 * Update the `README.md` inside of the `benchmarking/gcp-instance` directory with specs and hardware
 
-* Dockerfile
-
 * Github actions
+
+* Write node script to launch all processes
 
 ## GCP Setup (Debian 10)
 
