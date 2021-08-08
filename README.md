@@ -8,7 +8,7 @@ Benchmarking for Substrate-API-Sidecar
 
 * Github actions
 
-* Write node script to launch all processes
+* Write node script to launch all processes.
 
 ## GCP Setup (Debian 10)
 
