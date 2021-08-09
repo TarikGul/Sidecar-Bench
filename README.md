@@ -2,7 +2,7 @@
 
 Benchmarking for Substrate-API-Sidecar
 
-### TODO
+## TODO
 
 * Update the `README.md` inside of the `benchmarking/gcp-instance` directory with specs and hardware
 
