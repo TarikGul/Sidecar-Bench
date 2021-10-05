@@ -40,14 +40,28 @@ blocks = {
 '799310', -- after v17
 }
 
+function shuffle(paths)
+  local j, k
+  local n = #paths
+
+  for i = 1, n do
+    j, k = math.random(n), math.random(n)
+    paths[j], paths[k] = paths[k], paths[j]
+  end
+
+  return paths
+end
+
 counter = 1
 
 request = function()
-  if counter > #blocks then
+  local shuffle_data = shuffle(blocks)
+
+  if counter > #shuffle_data then
     counter = 1
   end
 
-  local height = blocks[counter]
+  local height = shuffle_data[counter]
   counter = counter + 1
 
   local path  = string.format('/blocks/%s', height)
