@@ -104,19 +104,19 @@ sudo cp wrk /usr/local/bin
 
 ```
 git clone https://github.com/TarikGul/Sidecar-Bench.git
-sh ./lua-scripts/setup.sh
+sh ./scripts/setup.sh
 ```
 
 ## Launch Benchmarks
 
 ```
 cd Sidecar-bench
-sh ./lua-scripts/init.sh
+sh ./scripts/init.sh
 ```
 
 ## Notes:
 
-Currently there are 3 scripts inside of `./lua-scripts`. We are currently using `lightweight-bench.lua` because of its ability to put less load on the system and have morea ccurate benchmarking. `Json-bench.lua` reads in the paths to send requests too via a json file whereas `lightweight-bench.lua` reads in hardcoded values from a lua vector(array). `heavy-bench.lua` is similar to `json-bench.lua` but it also checks for a connection with Sidecar before running the wrk scripts and then checks for the version of sidecar that is running.
+Currently there are 3 scripts inside of `./lua-scripts`. We are currently using `lightweight-bench.lua` because of its ability to put less load on the system and have more accurate benchmarking. `json-bench.lua` reads in the paths to send requests too via a json file whereas `lightweight-bench.lua` reads in hardcoded values from a lua vector(array). `heavy-bench.lua` is similar to `json-bench.lua` but it also checks for a connection with Sidecar before running the wrk scripts and then checks for the version of sidecar that is running.
 
 ### Aggregate
 
