@@ -84,16 +84,9 @@ done = function(summary, latency, requests)
   print("Failed requests: ", summary.errors.status)
   print("Timeouts: ", summary.errors.status)
   print("Average latency: ", (latency.mean/1000).."s")
-  
-  -- print("Latency Distribution:")
-  --   If you want to print similar stats to the built int --latency
-  --   for _, p in pairs({ 50, 75, 90, 99.999 }) do
-  --       n = latency:percentile(p)
-  --       print(string.format("%g%%, %d\n", p, n))
-  --   end
 
   -- Save to a local txt file
-  local file = io.open("./benchmarks/gcp-instance/sidecar-v.txt", "w")
+  local file = io.open("./benchmarks/gcp-instance/sidecar-bench-results.txt", "w")
   file:write("Total completed requests: " .. requests .. "\n")
   file:write("Failed requests: " .. errors .. "\n")
   file:write("Timeouts: " .. errors .. "\n")
